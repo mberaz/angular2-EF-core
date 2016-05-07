@@ -4,14 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using PeopleDb.DAL.Interfaces;
 using System.Collections.Generic;
+using PeopleDb.Services;
 
 namespace PeopleDb.Controllers
 {
     [Route("api/[controller]")]
     public class PeopleController :Controller
     {
-        private IPeopleRepository service;
-        public PeopleController (IPeopleRepository _service)
+        private IPeopleService service;
+        public PeopleController (IPeopleService _service)
         {
             service = _service;
         }
@@ -19,21 +20,19 @@ namespace PeopleDb.Controllers
         [HttpGet]
         public async Task<IActionResult> Get ()
         {
-            return Ok( await service.GetAllAsync());
+            return Ok(await service.GetAll());
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get (int id)
         {
-            return Ok(await service.GetSingleAsync(id));
+            return Ok(await service.Get(id));
         }
 
         [HttpPost]
         public async Task<IActionResult> Post ([FromBody]People model)
         {
-            service.Add(model);
-
-            await service.CommitAsync();
+            await service.Create(model);
             var url = Request.IsHttps ? "https" : "http" + $"//:{Request.Host}{Request.Path}/{model.Id}";
             return Created(url,model.Id);
         }
@@ -41,11 +40,9 @@ namespace PeopleDb.Controllers
         [HttpPost("List")]
         public async Task<IActionResult> CrateList ([FromBody] List<People> model)
         {
-            service.AddRange(model);
-
-            await service.CommitAsync();
+            var result=await service.Create(model);
             var url = Request.IsHttps ? "https" : "http" + $"//:{Request.Host}{Request.Path}";
-            return Created(url,model.Select(m=>m.Id));
+            return Created(url,result);
         }
     }
 }

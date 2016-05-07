@@ -11,13 +11,11 @@ using Microsoft.AspNet.FileProviders;
 using PeopleDb.DAL.Interfaces;
 using PeopleDb.DAL.Repositories;
 using PeopleDb.Services;
-//using PeopleDb.Infrastructure;
 using Microsoft.Data.Entity;
 using PeopleDb.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.PlatformAbstractions;
-//data source=.\baron2016;initial catalog=PeopleDB;user id=sa;password=sNET135!;MultipleActiveResultSets=True;App=EntityFramework
-//dnx ef dbcontext scaffold "data source=.\baron2016;initial catalog=PeopleDB;user id=sa;password=sNET135!;MultipleActiveResultSets=True;" EntityFramework.MicrosoftSqlServer --outputDir Models
+
 namespace PeopleDb
 {
     public class Startup
@@ -61,16 +59,13 @@ namespace PeopleDb
             app.UseStaticFiles();
 
             var mappedPath = env.WebRootPath.Replace("wwwroot","") + "\\scripts";
-            //FileProvider = new PhysicalFileProvider(@"C:\Users\bigmack\Documents\Visual Studio 2015\Projects\AspNet5Angular2Demo\AspNet5Angular2Demo\src\AspNet5Angular2Demo\scripts"),
             app.UseFileServer(new FileServerOptions()
             {
-
                 FileProvider = new PhysicalFileProvider(mappedPath),
                 RequestPath = new PathString("/scripts"),
             });
 
             app.UseMvc();
-            //DbInitializer.Initialize(app.ApplicationServices);
         }
 
         // Entry point for the application.
