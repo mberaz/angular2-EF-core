@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <title>Angular 2 with ASP.NET 5</title>
-    <link href="libs/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="libs/css/paper.css" rel="stylesheet" />
+    <link href="libs/css/custom.css" rel="stylesheet" />
     <!-- 1. Load libraries -->
     <script src="libs/es6-shim.min.js"></script>
     <script src="libs/system-polyfills.js"></script>
@@ -12,6 +14,9 @@
     <script src="libs/system.js"></script>
     <script src="libs/rx.js"></script>
     <script src="libs/angular2.dev.js"></script>
+    <script src="libs/http.dev.js"></script>
+    <script src="libs/router.dev.js"></script>
+
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
@@ -21,16 +26,37 @@
                 }
             }
         });
+
     </script>
     <script>
 
-        System.import('appScripts/boot')
+        System.import('appScripts/main')
               .then(null, console.error.bind(console));
+        System.import('appScripts/App/AppComponent');
+       
+        System.import('appScripts/App/config');
+        System.import('appScripts/App/common');
+        System.import('appScripts/App/ModelOpener');
+
+        System.import('appScripts/App/people.component');
+        System.import('appScripts/App/people.service');
+        System.import('appScripts/App/people');
+
+        System.import('appScripts/App/role.component');
+        System.import('appScripts/App/role.service');
+        System.import('appScripts/App/role');
+
+
+        System.import('appScripts/App/DashboardComponent');
+
+        //System.import('appScripts/App/User');
+        //System.import('appScripts/App/User.Component');
+        //System.import('appScripts/App/User.Service');
+        //System.import('appScripts/App/UserListComponent');
     </script>
 
 </head>
-<body>
-    <h2>Demo of Angular 2 using ASP.NET 5 with Visual Studio 2015</h2>
+<body>  
     <my-app>Loading...</my-app>
 </body>
 </html>

@@ -15,6 +15,7 @@ using Microsoft.Data.Entity;
 using PeopleDb.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.PlatformAbstractions;
+using RoleDb.Services;
 
 namespace PeopleDb
 {
@@ -38,7 +39,7 @@ namespace PeopleDb
 
             // Services
             services.AddScoped<IPeopleService,PeopleService>();
-
+            services.AddScoped<IRolesService,RolesService>();
             services.AddMvc();
         }
 

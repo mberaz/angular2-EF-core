@@ -1,0 +1,22 @@
+﻿<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header bs-component">
+            <a class="navbar-brand" href="/">{{title}}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li> <a [routerLink]="['Dashboard']">Dashboard</a></li>
+                <!--<li> <a [routerLink]="['Todo']">Todo list</a></li>
+                <li> <a [routerLink]="['User']">Users list</a></li>-->
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container body-content">
+    <h1>{{title}}</h1>
+  
+    <router-outlet></router-outlet>
+</div>
+

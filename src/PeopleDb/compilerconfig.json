@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "wwwroot/bootstrapMaterial/less/_alerts.css",
+    "inputFile": "wwwroot/bootstrapMaterial/less/_alerts.less"
+  },
+  {
+    "outputFile": "wwwroot/bootstrapMaterial/less/_buttons.css",
+    "inputFile": "wwwroot/bootstrapMaterial/less/_buttons.less"
+  },
+  {
+    "outputFile": "wwwroot/bootstrapMaterial/sass/_alerts.css",
+    "inputFile": "wwwroot/bootstrapMaterial/sass/_alerts.scss"
+  }
+]

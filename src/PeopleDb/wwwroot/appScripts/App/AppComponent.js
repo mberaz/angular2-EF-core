@@ -8,15 +8,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+///// <reference path="todocomponent.ts" />
 var core_1 = require('angular2/core');
+var DashboardComponent_1 = require('./DashboardComponent');
+//import {TodoComponent} from './TodoComponent';
+//import {UserListComponent} from './UserListComponent';
+//import {UserEditComponent} from './UserEditComponent';
+var router_1 = require('angular2/router');
 var AppComponent = (function () {
     function AppComponent() {
+        this.title = 'MIchaels new TODO app';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: 'My First Angular 2 App'
-        }), 
+            templateUrl: "/People/PeopleApp.html",
+            directives: [router_1.ROUTER_DIRECTIVES],
+        }),
+        router_1.RouteConfig([
+            {
+                path: '/dashboard',
+                name: 'Dashboard',
+                component: DashboardComponent_1.DashboardComponent,
+                useAsDefault: true
+            },
+        ]), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
