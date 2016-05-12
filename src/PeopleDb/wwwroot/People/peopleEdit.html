@@ -1,0 +1,11 @@
+﻿<div *ngIf="user">
+    <label class="label label-default">{{person.id}}</label><br />
+    <input [(ngModel)]="person.firstName" placeholder="first name" required /><br />
+    <input [(ngModel)]="person.lastName" placeholder="last name" required /><br />
+    <input [(ngModel)]="person.email" placeholder="email" required /><br />
+
+    <button type="button" class="btn btn-success" (click)="Save(person)">Save</button>
+    <button type="button" class="btn btn-danger" (click)="goBack()">cancel</button>
+</div>
+
+<button (click)="goBack()">Back</button>
