@@ -35,6 +35,13 @@ var PeopleService = (function () {
         return http.post(config.apiBaseUrl + "People", data, options).toPromise();
     };
     ;
+    PeopleService.prototype.updatePerson = function (data, http) {
+        var config = new Config();
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return http.put(config.apiBaseUrl + "People", data, options).toPromise();
+    };
+    ;
     PeopleService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

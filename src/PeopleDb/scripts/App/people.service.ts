@@ -28,4 +28,13 @@ export class PeopleService {
         return http.post(config.apiBaseUrl + "People", data, options).toPromise();
     };
 
+
+    updatePerson(data: string, http: Http) {
+        var config = new Config();
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        var options = new RequestOptions({ headers: headers });
+
+        return http.put(config.apiBaseUrl + "People", data, options).toPromise();
+    };
+
 }

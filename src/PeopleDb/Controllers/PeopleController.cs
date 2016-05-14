@@ -44,5 +44,13 @@ namespace PeopleDb.Controllers
             var url = Request.IsHttps ? "https" : "http" + $"//:{Request.Host}{Request.Path}";
             return Created(url,result);
         }
+
+
+        [HttpPut]
+        public async Task<IActionResult> Update ([FromBody]People model)
+        {
+            await service.Update(model);
+            return Ok( model.Id);
+        }
     }
 }

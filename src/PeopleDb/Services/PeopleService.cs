@@ -8,7 +8,7 @@ using PeopleDb.Models;
 
 namespace PeopleDb.Services
 {
-    public class PeopleService:IPeopleService
+    public class PeopleService :IPeopleService
     {
         private readonly IPeopleRepository _peopleRoleRepository;
 
@@ -17,23 +17,23 @@ namespace PeopleDb.Services
             _peopleRoleRepository = peopleRoleRepository;
         }
 
-        public async Task<IEnumerable<People>> GetAll()
+        public async Task<IEnumerable<People>> GetAll ()
         {
             return await _peopleRoleRepository.GetAllAsync();
         }
 
 
-        public async Task< People> Get (int id)
+        public async Task<People> Get (int id)
         {
             return await _peopleRoleRepository.GetSingleAsync(id);
         }
 
-        public async Task<int> Create(People model)
+        public async Task<int> Create (People model)
         {
             _peopleRoleRepository.Add(model);
 
             await _peopleRoleRepository.CommitAsync();
-            
+
             return model.Id;
         }
 
@@ -44,6 +44,19 @@ namespace PeopleDb.Services
             await _peopleRoleRepository.CommitAsync();
 
             return model.Select(m => m.Id);
+        }
+
+        public async Task<int> Update (People model)
+        {
+            var person = await _peopleRoleRepository.GetSingleAsync(model.Id);
+
+            person.LastName = model.LastName;
+            person.FirstName = model.FirstName;
+            person.Email = model.Email;
+            person.RoleId = model.RoleId;
+
+            await _peopleRoleRepository.CommitAsync();
+            return model.Id;
         }
     }
 }

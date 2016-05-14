@@ -46,9 +46,12 @@ var PeopleEditComponent = (function () {
     PeopleEditComponent.prototype.goBack = function () {
         window.history.back();
     };
-    PeopleEditComponent.prototype.Save = function (person) {
+    //Save(person: People) {
+    //    this.PeopleService.createPerson(JSON.stringify(person), this.http).then(person => this.extractData(person));
+    //}
+    PeopleEditComponent.prototype.Update = function (person) {
         var _this = this;
-        this.PeopleService.createPerson(JSON.stringify(person), this.http).then(function (person) { return _this.extractData(person); });
+        this.PeopleService.updatePerson(JSON.stringify(person), this.http).then(function (person) { return _this.extractData(person); });
     };
     PeopleEditComponent.prototype.extractData = function (res) {
         if (res.status < 200 || res.status >= 300) {

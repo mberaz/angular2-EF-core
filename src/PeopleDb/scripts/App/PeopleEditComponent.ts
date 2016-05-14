@@ -61,8 +61,12 @@ export class PeopleEditComponent implements OnInit {
         window.history.back();
     }
 
-    Save(person: People) {
-        this.PeopleService.createPerson(JSON.stringify(person), this.http).then(person => this.extractData(person));
+    //Save(person: People) {
+    //    this.PeopleService.createPerson(JSON.stringify(person), this.http).then(person => this.extractData(person));
+    //}
+
+    Update(person: People) {
+        this.PeopleService.updatePerson(JSON.stringify(person), this.http).then(person => this.extractData(person));
     }
 
     private extractData(res: Response) {

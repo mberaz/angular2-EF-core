@@ -15,5 +15,7 @@ namespace PeopleDb.Services
         Task<int> Create (People model);
 
         Task<IEnumerable<int>> Create (List<People> model);
+
+        Task<int> Update (People model);
     }
 }
