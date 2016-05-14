@@ -1,7 +1,7 @@
 ///// <reference path="todocomponent.ts" />
 import {Component } from 'angular2/core';
 import {DashboardComponent} from './DashboardComponent';
-//import {TodoComponent} from './TodoComponent';
+import {PeopleEditComponent} from './PeopleEditComponent';
 //import {UserListComponent} from './UserListComponent';
 //import {UserEditComponent} from './UserEditComponent';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
@@ -28,11 +28,11 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router
     //    name: 'User',
     //    component: UserListComponent
     //},
-    //{
-    //    path: '/user/:id',
-    //    name: 'UserDetail',
-    //    component: UserEditComponent
-    //}
+    {
+        path: '/people/:id',
+        name: 'PeopleDetail',
+        component: PeopleEditComponent
+    }
 ])
 export class AppComponent {
     title = 'MIchaels new TODO app';

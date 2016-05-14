@@ -61,7 +61,7 @@ var PeopleEditComponent = (function () {
     PeopleEditComponent = __decorate([
         core_1.Component({
             selector: 'user-item',
-            templateUrl: "/People/UserEdit.html",
+            templateUrl: "/People/peopleEdit.html",
             providers: [
                 http_2.HTTP_PROVIDERS,
                 people_service_1.PeopleService,

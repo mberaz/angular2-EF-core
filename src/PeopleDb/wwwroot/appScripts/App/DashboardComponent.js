@@ -17,8 +17,10 @@ var people_service_1 = require('./people.service');
 var role_component_1 = require('./role.component');
 var role_service_1 = require('./role.service');
 var core_1 = require('angular2/core');
+var router_1 = require('angular2/router');
 var DashboardComponent = (function () {
-    function DashboardComponent(_peopleService, _roleService) {
+    function DashboardComponent(_peopleService, _roleService, _router) {
+        this._router = _router;
         this.loadPeople = function (data) {
             this.peoples = new Array();
             for (var i = 0; i < data.length; i++) {
@@ -33,7 +35,9 @@ var DashboardComponent = (function () {
         };
         this.peopleService = _peopleService;
         this.roleService = _roleService;
+        this.router = _router;
     }
+    ;
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.peopleService.getPeople().then(function (results) {
@@ -43,6 +47,7 @@ var DashboardComponent = (function () {
             _this.loadRoles(results[0]);
         });
     };
+    ;
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'my-dashboard',
@@ -53,7 +58,7 @@ var DashboardComponent = (function () {
             ],
             directives: [people_component_1.PeopleComponent, role_component_1.RolesComponent]
         }), 
-        __metadata('design:paramtypes', [people_service_1.PeopleService, role_service_1.RolesService])
+        __metadata('design:paramtypes', [people_service_1.PeopleService, role_service_1.RolesService, router_1.Router])
     ], DashboardComponent);
     return DashboardComponent;
 }());

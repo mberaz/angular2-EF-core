@@ -16,7 +16,7 @@ import 'rxjs/Rx';
 
 @Component({
     selector: 'user-item',
-    templateUrl: "/People/UserEdit.html",
+    templateUrl: "/People/peopleEdit.html",
     providers: [
         HTTP_PROVIDERS,
         PeopleService,

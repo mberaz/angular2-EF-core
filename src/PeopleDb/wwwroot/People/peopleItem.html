@@ -1,8 +1,10 @@
-﻿<div>
+﻿<div >
     <label class="label label-success">{{"["+people.id+"]"}}</label>
-    <label class="label label-info">{{people.email}}</label>
+    <label class="label label-info" >{{people.email}}</label>
     <label class="label label-info">{{people.firstName+" "+people.lastName}}</label>   
     <label class="label label-warning">{{people.roleId}}</label>
+
+    <button type="button" class="btn btn-danger" (click)="goto(people)">Edit</button>
 </div>
 
 <!--<div class="bs-docs-section">

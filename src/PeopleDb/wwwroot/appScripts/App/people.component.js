@@ -9,16 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
+var router_1 = require('angular2/router');
 var PeopleComponent = (function () {
-    function PeopleComponent() {
+    function PeopleComponent(_router) {
+        this._router = _router;
+        this.router = _router;
     }
+    ;
+    PeopleComponent.prototype.goto = function (people) {
+        var link = ['PeopleDetail', { id: people.id }];
+        this.router.navigate(link);
+    };
+    ;
     PeopleComponent = __decorate([
         core_1.Component({
             selector: 'people-item',
             templateUrl: "/People/peopleItem.html",
             inputs: ['people']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], PeopleComponent);
     return PeopleComponent;
 }());

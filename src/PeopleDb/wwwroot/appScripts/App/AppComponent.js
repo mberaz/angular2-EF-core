@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 ///// <reference path="todocomponent.ts" />
 var core_1 = require('angular2/core');
 var DashboardComponent_1 = require('./DashboardComponent');
-//import {TodoComponent} from './TodoComponent';
+var PeopleEditComponent_1 = require('./PeopleEditComponent');
 //import {UserListComponent} from './UserListComponent';
 //import {UserEditComponent} from './UserEditComponent';
 var router_1 = require('angular2/router');
@@ -32,6 +32,21 @@ var AppComponent = (function () {
                 component: DashboardComponent_1.DashboardComponent,
                 useAsDefault: true
             },
+            //{
+            //    path: '/todo',
+            //    name: 'Todo',
+            //    component: TodoComponent
+            //},
+            //{
+            //    path: '/user',
+            //    name: 'User',
+            //    component: UserListComponent
+            //},
+            {
+                path: '/people/:id',
+                name: 'PeopleDetail',
+                component: PeopleEditComponent_1.PeopleEditComponent
+            }
         ]), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
