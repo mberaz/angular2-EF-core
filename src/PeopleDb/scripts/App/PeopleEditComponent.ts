@@ -28,6 +28,8 @@ export class PeopleEditComponent implements OnInit {
     public http: any;
     public PeopleService: PeopleService;
     public RolesService: RolesService;
+    public roles = new Array<Role>();
+
     constructor(_Service: PeopleService,
         _rolesService: RolesService,
         private _routeParams: RouteParams,
@@ -59,6 +61,17 @@ export class PeopleEditComponent implements OnInit {
     }
     goBack() {
         window.history.back();
+    }
+
+
+    roleChange(event: any) {
+        if (event.currentTarget.value) {
+            var role = this.roles.first((x) => { return x.id === parseInt(event.currentTarget.value) });
+            if (role) {
+                this.person.roleId = role.id;
+            }
+        }
+
     }
 
     //Save(person: People) {

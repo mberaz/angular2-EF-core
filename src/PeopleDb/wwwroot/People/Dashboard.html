@@ -4,11 +4,8 @@
 <ul class="peoples">
     <li *ngFor="#people of peoples; #i=index" class="">
         <people-item [people]="people"></people-item>
+        <br />
     </li>
+
 </ul>
 
-<ul class="roles">
-    <li *ngFor="#role of roles; #i=index" class="">
-        <role-item [role]="role"></role-item>
-    </li>
-</ul>

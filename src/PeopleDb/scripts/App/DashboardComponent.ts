@@ -35,19 +35,21 @@ export class DashboardComponent implements OnInit {
     };
 
     ngOnInit() {
-        this.peopleService.getPeople().then(results => {
-            this.loadPeople(results[0]);
-        });
-
         this.roleService.getRoles().then(results => {
             this.loadRoles(results[0]);
+        });
+
+        this.peopleService.getPeople().then(results => {
+            this.loadPeople(results[0]);
         });
     };
 
     loadPeople = function (data: any) {
         this.peoples = new Array<People>();
         for (var i = 0; i < data.length; i++) {
-            this.peoples.push(new People(data[i].Id, data[i].Email, data[i].FirstName, data[i].LastName, data[i].RoleId));
+            var person = new People(data[i].Id, data[i].Email, data[i].FirstName, data[i].LastName, data[i].RoleId);
+            person.roleName = this.roles.find((x) => { return x.id === data[i].RoleId; }).name;
+            this.peoples.push(person);
         }
     };
 
@@ -58,7 +60,7 @@ export class DashboardComponent implements OnInit {
         }
     };
 
-  
+    
 
 
 }

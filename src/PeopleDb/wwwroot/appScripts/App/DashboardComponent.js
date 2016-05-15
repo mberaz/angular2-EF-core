@@ -24,7 +24,9 @@ var DashboardComponent = (function () {
         this.loadPeople = function (data) {
             this.peoples = new Array();
             for (var i = 0; i < data.length; i++) {
-                this.peoples.push(new People(data[i].Id, data[i].Email, data[i].FirstName, data[i].LastName, data[i].RoleId));
+                var person = new People(data[i].Id, data[i].Email, data[i].FirstName, data[i].LastName, data[i].RoleId);
+                person.roleName = this.roles.find(function (x) { return x.id === data[i].RoleId; }).name;
+                this.peoples.push(person);
             }
         };
         this.loadRoles = function (data) {
@@ -40,11 +42,11 @@ var DashboardComponent = (function () {
     ;
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.peopleService.getPeople().then(function (results) {
-            _this.loadPeople(results[0]);
-        });
         this.roleService.getRoles().then(function (results) {
             _this.loadRoles(results[0]);
+        });
+        this.peopleService.getPeople().then(function (results) {
+            _this.loadPeople(results[0]);
         });
     };
     ;

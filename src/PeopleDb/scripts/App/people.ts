@@ -6,6 +6,8 @@ class People {
     lastName: string;
     roleId: number;
 
+    roleName: string;
+
     constructor(id: number, email: string, firstName: string, lastName: string, roleId: number) {
        this.id=id;
        this.email = email;

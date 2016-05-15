@@ -21,6 +21,7 @@ require('rxjs/Rx');
 var PeopleEditComponent = (function () {
     function PeopleEditComponent(_Service, _rolesService, _routeParams, _http) {
         this._routeParams = _routeParams;
+        this.roles = new Array();
         this.loadRoles = function (data) {
             this.roles = new Array();
             for (var i = 0; i < data.length; i++) {
@@ -45,6 +46,14 @@ var PeopleEditComponent = (function () {
     };
     PeopleEditComponent.prototype.goBack = function () {
         window.history.back();
+    };
+    PeopleEditComponent.prototype.roleChange = function (event) {
+        if (event.currentTarget.value) {
+            var role = this.roles.first(function (x) { return x.id === parseInt(event.currentTarget.value); });
+            if (role) {
+                this.person.roleId = role.id;
+            }
+        }
     };
     //Save(person: People) {
     //    this.PeopleService.createPerson(JSON.stringify(person), this.http).then(person => this.extractData(person));
