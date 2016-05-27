@@ -33,9 +33,13 @@ namespace PeopleDb
                    options.UseSqlServer(Configuration["Data:PeopleConnection:ConnectionString"]));
 
             // Repositories
-            services.AddScoped<IPeopleRepository,PeopleRepository>();
-            services.AddScoped<IRolesRepository,RolesRepository>();
-            services.AddScoped<IAddressRepository,addressRepository>();
+            //services.AddScoped<IPeopleRepository,PeopleRepository>();
+            //services.AddScoped<IRolesRepository,RolesRepository>();
+            //services.AddScoped<IAddressRepository,addressRepository>();
+
+            services.AddScoped<IPeopleRepository,PeopleMokRepository>();
+            services.AddScoped<IRolesRepository,RolesMokRepository>();
+            services.AddScoped<IAddressRepository,addressMokRepository>();
 
             // Services
             services.AddScoped<IPeopleService,PeopleService>();
